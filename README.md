@@ -1,117 +1,120 @@
-# CyberSec Solutions - Cybersecurity Website
+# Phishing Email Simulator
 
-A modern, responsive cybersecurity website built with HTML5, CSS3, and JavaScript. Features a dark theme with neon accents, interactive animations, and comprehensive cybersecurity content.
+A comprehensive cybersecurity training platform built with Flask that simulates phishing email campaigns to educate users about email security threats. Features a modern dark theme with neon accents, interactive campaign management, and detailed analytics.
 
 ## 🌟 Features
 
-- **Modern Design**: Dark theme with neon green (#00ff9d) and blue (#00b8ff) accents
-- **Responsive Layout**: Mobile-first design with breakpoints at 320px, 768px, 1024px, and 1440px
-- **Interactive Elements**: Smooth animations, hover effects, and modal dialogs
-- **Cybersecurity Focus**: Comprehensive content covering security awareness, projects, and services
-- **Form Validation**: Client-side validation with loading animations
-- **SEO Optimized**: Semantic HTML5 markup and meta tags
+- **Complete Campaign Management**: Create, manage, and track phishing email campaigns
+- **User Management**: Admin dashboard for managing target users and departments
+- **Interactive Simulator**: Real-time phishing email simulation with recipient tracking
+- **Analytics Dashboard**: Detailed metrics on campaign performance and user responses
+- **Educational Content**: Built-in training materials and educational resources
+- **Responsive Design**: Mobile-first design with modern UI/UX
+- **Dark Theme**: Neon green (#00ff9d) and blue (#00b8ff) accents on dark background
+- **Real-time Updates**: Live campaign status and recipient interaction tracking
 
 ## 📄 Pages
 
-### 1. Home Page
-- Animated cyber-grid background
-- Hero section with bold headline and CTAs
-- Features grid with security highlights
-- Pulsing security shield icon
+### 1. Marketing Pages
+- **Home**: Landing page with cybersecurity awareness content
+- **About**: Company information and security threat landscape
+- **Projects**: Showcase of cybersecurity projects and initiatives
 
-### 2. About Page
-- Threat landscape analysis (200-300 words)
-- Common attack vectors with icons
-- Security awareness statistics
-- Team information and company background
-
-### 3. Projects Page
-- Featured Phishing Email Simulation project
-- Interactive project cards with modals
-- Technical specifications and outcomes
-- Screenshot carousel placeholders
-
-### 4. Services Page
-- 4 service cards with hover animations:
-  - Cyber Awareness Training
-  - Vulnerability Assessment
-  - Email Security Solutions
-  - Penetration Testing
-- Quote request modal with form validation
-
-### 5. Contact Page
-- Validated contact form with loading animation
-- Company contact information
-- Social media links
-- Embedded Google Maps
-- Business hours section
+### 2. Simulator Platform
+- **Campaign Dashboard**: Main simulator interface for creating campaigns
+- **Admin Panel**: User management and system administration
+- **Analytics**: Detailed campaign performance metrics and insights
+- **Phishing Pages**: Realistic phishing landing pages for simulation
+- **Educational Messages**: Training content for users who interact with campaigns
 
 ## 🛠 Technical Implementation
 
-### HTML5 Features
-- Semantic markup (`<nav>`, `<section>`, `<article>`, `<footer>`)
-- Form validation attributes
-- Responsive meta tags
-- Accessibility features (ARIA labels)
+### Backend (Flask)
+- **Database**: SQLite with SQLAlchemy ORM
+- **API Endpoints**: RESTful API for campaign and user management
+- **Template Engine**: Jinja2 with Flask templating
+- **Static Files**: Optimized CSS and JavaScript delivery
+- **Error Handling**: Comprehensive error handling and validation
 
-### CSS3 Features
-- CSS Custom Properties for theming
-- Flexbox and Grid layouts
-- CSS animations (`@keyframes`, `transform`, `transition`)
-- Backdrop filtering for modal effects
-- Mobile-first responsive design
+### Frontend Technologies
+- **HTML5**: Semantic markup with accessibility features
+- **CSS3**: Custom properties, Flexbox, Grid layouts, animations
+- **JavaScript**: ES6+ features, async/await, fetch API
+- **Responsive Design**: Mobile-first approach with breakpoints
 
-### JavaScript Features
-- Intersection Observer API for scroll animations
-- Form validation with error handling
-- Modal dialog management
-- Smooth scrolling navigation
-- Loading animations
-- Mobile navigation toggle
+### Key Features
+- **Campaign Creation**: Multi-step campaign setup with template selection
+- **User Targeting**: Department and role-based user selection
+- **Real-time Tracking**: Live updates on email opens, link clicks, and form submissions
+- **Educational Redirects**: Automatic redirection to training materials
+- **Analytics Dashboard**: Visual charts and detailed metrics
 
 ## 📁 File Structure
 
 ```
-cybersecurity-website/
-├── index.html              # Home page
-├── about.html              # About page
-├── projects.html           # Projects page
-├── services.html           # Services page
-├── contact.html            # Contact page
-├── css/
-│   └── main.css           # Main stylesheet with all page styles
-├── js/
-│   └── app.js             # JavaScript functionality
-└── README.md              # This file
+phishing-email-simulator/
+├── backend/
+│   └── app.py                 # Flask application with all routes and APIs
+├── static/
+│   ├── css/
+│   │   ├── main.css          # Marketing pages styles
+│   │   └── simulator.css     # Simulator-specific styles
+│   └── js/
+│       ├── app.js            # Marketing pages JavaScript
+│       ├── admin.js          # Admin dashboard functionality
+│       └── simulator.js      # Campaign management and simulation
+├── templates/
+│   ├── simulator/
+│   │   ├── index.html        # Main simulator dashboard
+│   │   ├── admin.html        # User management interface
+│   │   ├── analytics.html    # Analytics and reporting
+│   │   ├── about.html        # About page
+│   │   ├── projects.html     # Projects showcase
+│   │   ├── phishing_page.html     # Simulated phishing landing
+│   │   └── educational_message.html # Training content
+│   └── index.html            # Marketing homepage
+├── phishing_simulation.db     # SQLite database (created automatically)
+├── README.md                 # This file
+└── .gitignore               # Git ignore configuration
 ```
 
 ## 🚀 Setup Instructions
 
 ### Prerequisites
+- Python 3.7+ with pip
 - Modern web browser (Chrome, Firefox, Safari, Edge)
-- Local web server (optional, for development)
+- Git (for cloning the repository)
 
 ### Installation
-1. Clone or download the repository
-2. Extract files to your desired directory
-3. Open `index.html` in your web browser
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ElonCoding/Phishing-Email-Simulator-.git
+   cd phishing-email-simulator
+   ```
 
-### Local Development Server (Optional)
-For better development experience, use a local server:
+2. **Install Python dependencies:**
+   ```bash
+   pip install flask
+   ```
 
-**Python:**
+3. **Start the Flask application:**
+   ```bash
+   cd backend
+   python app.py
+   ```
+
+4. **Access the application:**
+   - Marketing pages: http://localhost:5000
+   - Simulator dashboard: http://localhost:5000/simulator
+   - Admin panel: http://localhost:5000/admin
+   - Analytics: http://localhost:5000/analytics
+
+### Development Setup
+For development with auto-reload:
 ```bash
-python -m http.server 8000
+export FLASK_ENV=development
+python backend/app.py
 ```
-
-**Node.js (with http-server):**
-```bash
-npm install -g http-server
-http-server
-```
-
-**VS Code Live Server:**
-Install the "Live Server" extension and right-click on any HTML file
 
 ## 🎨 Customization
 
@@ -128,21 +131,19 @@ Edit CSS custom properties in `css/main.css`:
 }
 ```
 
-### Contact Information
-Update contact details in `contact.html`:
-```html
-<div class="info-item">
-    <h3>Address</h3>
-    <p>123 Cyber Security Blvd<br>Tech District, Suite 500<br>San Francisco, CA 94105</p>
-</div>
-```
+### Email Templates
+Edit email templates in the simulator interface to customize phishing simulation content. Templates include:
+- **Urgent Security Update**: Simulates urgent account security notifications
+- **Package Delivery**: Mimics shipping notification emails
+- **IT Support**: Simulates internal IT support requests
+- **Account Verification**: Fake account verification requests
 
-### Form Handling
-The contact form uses client-side validation. For production:
-1. Replace the simulated form submission with actual backend integration
-2. Add server-side validation
-3. Implement proper email sending functionality
-4. Add spam protection (CAPTCHA)
+### Campaign Settings
+Customize campaign parameters:
+- **Difficulty Levels**: Easy, Medium, Hard
+- **Attack Vectors**: Different phishing techniques
+- **Sender Profiles**: Customizable sender names and emails
+- **Timing**: Schedule campaigns for optimal training impact
 
 ## 📱 Browser Compatibility
 
@@ -170,42 +171,70 @@ The contact form uses client-side validation. For production:
 
 ## 🔒 Security Considerations
 
-- All forms include client-side validation
-- Input sanitization should be implemented server-side
-- HTTPS should be used in production
-- Content Security Policy headers recommended
-- Regular security audits of dependencies
+- **Educational Purpose**: This simulator is designed for cybersecurity training only
+- **Client-side Validation**: All forms include client-side validation
+- **Input Sanitization**: Server-side validation implemented in Flask routes
+- **HTTPS Recommended**: Use HTTPS in production environments
+- **Access Control**: Implement proper authentication for production use
+- **Data Privacy**: Ensure compliance with data protection regulations
+- **Ethical Use**: Only use on authorized users for training purposes
 
 ## 📊 Analytics Integration
 
-Add your analytics code to track:
-- Page views and user engagement
-- Form submission rates
-- Modal interaction rates
-- Mobile vs desktop usage
+The built-in analytics dashboard tracks:
+- **Campaign Performance**: Open rates, click rates, submission rates
+- **User Behavior**: Individual user interaction patterns
+- **Department Metrics**: Performance by department and role
+- **Template Effectiveness**: Which phishing templates are most effective
+- **Timeline Analytics**: Campaign progress over time
+- **Geographic Data**: User location-based insights (if enabled)
 
 ## 🔄 Future Enhancements
 
 ### Potential Additions
-- Blog section for security articles
-- Case studies page
-- Team member profiles
-- Client testimonials
-- Integration with CRM systems
-- Multi-language support
-- Dark/Light theme toggle
-- Progressive Web App (PWA) features
+- **Authentication System**: User login and role-based access control
+- **Advanced Templates**: More sophisticated phishing email templates
+- **Reporting System**: Automated PDF reports for management
+- **Integration APIs**: Connect with existing security tools
+- **Mobile App**: Companion mobile application for administrators
+- **Multi-tenant Support**: Support for multiple organizations
+- **Advanced Analytics**: Machine learning for threat detection
+- **Real-time Notifications**: Email/SMS alerts for campaign events
 
 ### Technical Improvements
-- Implement React/Vue.js components
-- Add TypeScript support
-- Implement state management
-- Add unit and integration tests
-- Implement CI/CD pipeline
+- **Database Migration**: Upgrade to PostgreSQL for production
+- **Containerization**: Docker support for easy deployment
+- **API Documentation**: Swagger/OpenAPI documentation
+- **Testing Suite**: Unit and integration tests
+- **Performance Optimization**: Caching and query optimization
+- **Security Hardening**: Advanced security measures
+- **Scalability**: Support for large-scale deployments
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+## 🔌 API Endpoints
+
+### Campaign Management
+- `GET /api/campaigns` - List all campaigns
+- `POST /api/campaigns` - Create new campaign
+- `GET /api/campaigns/<id>` - Get campaign details
+- `GET /api/campaign-recipients/<id>` - Get campaign recipients
+
+### User Management
+- `GET /api/users` - List all users
+- `POST /api/users` - Create new user
+- `POST /api/seed-users` - Add demo users
+
+### Analytics
+- `GET /api/analytics` - Get analytics data
+- `GET /api/campaigns/<id>/stats` - Get campaign statistics
+
+### Simulation
+- `POST /api/track-email-open/<id>` - Track email opens
+- `POST /api/track-link-click/<id>` - Track link clicks
+- `POST /api/track-credentials/<id>` - Track credential submissions
 
 ## 🤝 Contributing
 
@@ -219,9 +248,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 For support and questions:
 - Create an issue in the repository
-- Contact: info@cybersecsolutions.com
-- Phone: +1 (415) 555-1234
+- Check the documentation in the code comments
+- Review the API endpoints for integration help
 
 ---
 
-**Built with ❤️ for cybersecurity professionals**
+**Built with ❤️ for cybersecurity education and awareness**
