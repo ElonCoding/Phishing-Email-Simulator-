@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Email Simulator - CyberShield</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/simulator.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="simulator-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>Phishing Simulator</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/admin" class="nav-link">Admin</a>
+                <a href="/analytics" class="nav-link">Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="simulator-main">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Phishing Email Simulation Platform</h1>
+                <p class="hero-subtitle">Test and improve your organization's resistance to phishing attacks through realistic simulations</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalUsers">0</div>
+                        <div class="stat-label">Users Tested</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalCampaigns">0</div>
+                        <div class="stat-label">Campaigns Run</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="avgClickRate">0%</div>
+                        <div class="stat-label">Average Click Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="simulation-controls">
+            <div class="container">
+                <div class="control-panel">
+                    <h2>Create New Simulation</h2>
+                    
+                    <div class="form-group">
+                        <label for="campaignName">Campaign Name</label>
+                        <input type="text" id="campaignName" placeholder="Enter campaign name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="campaignDescription">Description</label>
+                        <textarea id="campaignDescription" placeholder="Describe the campaign objectives"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="emailTemplate">Email Template</label>
+                            <select id="emailTemplate">
+                                <option value="">Select a template</option>
+                                <option value="urgent_password">Urgent Password Reset</option>
+                                <option value="ceo_request">CEO Request</option>
+                                <option value="package_delivery">Package Delivery</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="difficultyLevel">Difficulty Level</label>
+                            <select id="difficultyLevel">
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="targetUsers">Target Users</label>
+                        <div style="display:flex; gap:10px; align-items:center">
+                            <select id="targetUsers" multiple></select>
+                            <button id="addDemoUsers" class="btn">Add Demo Users</button>
+                        </div>
+                        <small>Hold Ctrl/Cmd to select multiple users</small>
+                    </div>
+                    
+                    <div id="validationMsg" class="validation-message" style="color:#ff6b6b; font-size:14px; margin-bottom:10px; display:none;"></div>
+                    <button id="createCampaign" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Create Campaign
+                    </button>
+                </div>
+
+                <div class="email-preview">
+                    <h3>Email Preview</h3>
+                    <div id="emailPreview" class="preview-container">
+                        <div class="preview-placeholder">
+                            <i class="fas fa-envelope"></i>
+                            <p>Select an email template to preview</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="active-campaigns">
+            <div class="container">
+                <h2>Active Campaigns</h2>
+                <div id="campaignsList" class="campaigns-grid"></div>
+            </div>
+        </section>
+
+        <section class="quick-actions">
+            <div class="container">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <div class="action-card" onclick="showTemplateManager()">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <h3>Manage Templates</h3>
+                        <p>Create and customize phishing email templates</p>
+                    </div>
+                    <div class="action-card" onclick="showUserManager()">
+                        <i class="fas fa-users"></i>
+                        <h3>Manage Users</h3>
+                        <p>Add and organize target users for campaigns</p>
+                    </div>
+                    <div class="action-card" onclick="showAnalytics()">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>View Analytics</h3>
+                        <p>Detailed reports on campaign performance</p>
+                    </div>
+                    <div class="action-card" onclick="showTraining()">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Training Mode</h3>
+                        <p>Educational mode for learning about phishing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="campaignModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Campaign Details</h2>
+            <div id="campaignDetails"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/simulator.js') }}" defer></script>
+</body>
+</html>

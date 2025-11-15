@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Phishing Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/simulator.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="simulator-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>Phishing Simulator</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/admin" class="nav-link active">Admin</a>
+                <a href="/analytics" class="nav-link">Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="simulator-main">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Admin Dashboard</h1>
+                <p class="hero-subtitle">Manage users, campaigns, and templates</p>
+            </div>
+        </section>
+
+        <section class="simulation-controls">
+            <div class="container">
+                <div class="control-panel">
+                    <h2>Users</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userName">Name</label>
+                            <input type="text" id="userName" placeholder="Full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input type="text" id="userEmail" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userDepartment">Department</label>
+                            <input type="text" id="userDepartment" placeholder="e.g. Finance">
+                        </div>
+                        <div class="form-group">
+                            <label for="userRole">Role</label>
+                            <input type="text" id="userRole" placeholder="e.g. Analyst">
+                        </div>
+                    </div>
+                    <button id="addUserBtn" class="btn">Add User</button>
+
+                    <div style="margin-top:16px">
+                        <table class="table" id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
+                                    <th>Role</th>
+                                    <th>Created</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="control-panel" style="margin-top:16px">
+                    <h2>Campaigns</h2>
+                    <div id="adminCampaigns" class="campaigns-grid"></div>
+                </div>
+
+                <div class="control-panel" style="margin-top:16px">
+                    <h2>Templates</h2>
+                    <div id="adminTemplates" class="campaigns-grid"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulator - Phishing Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/simulator.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="simulator-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>Phishing Simulator</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/admin" class="nav-link">Admin</a>
+                <a href="/analytics" class="nav-link">Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="simulator-main">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Simulation Control Center</h1>
+                <p class="hero-subtitle">Use the Home page to create and manage campaigns</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/simulator.js') }}" defer></script>
+</body>
+</html>
